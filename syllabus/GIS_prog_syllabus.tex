@@ -1,0 +1,255 @@
+\documentclass[11pt, a4paper]{article}
+%\usepackage{geometry}
+\usepackage[inner=1.5cm,outer=1.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\pagestyle{empty}
+\usepackage{graphicx}
+\usepackage{fancyhdr, lastpage, bbding, pmboxdraw}
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{darkblue}{rgb}{0,0,.6}
+\definecolor{darkred}{rgb}{.7,0,0}
+\definecolor{darkgreen}{rgb}{0,.6,0}
+\definecolor{red}{rgb}{.98,0,0}
+\usepackage[colorlinks,pagebackref,pdfusetitle,urlcolor=darkblue,citecolor=darkblue,linkcolor=darkred,bookmarksnumbered,plainpages=false]{hyperref}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\lhead{ \fancyplain{}{GIS Programming, F21} }
+%\chead{ \fancyplain{}{} }
+\rhead{ \fancyplain{}{\today} }
+%\rfoot{\fancyplain{}{page \thepage\ of \pageref{LastPage}}}
+\fancyfoot[RO, LE] {page \thepage\ of \pageref{LastPage} }
+\thispagestyle{plain}
+
+%%%%%%%%%%%% LISTING %%%
+\usepackage{listings}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\usepackage{verbatim} % used to display code
+\usepackage{fancyvrb}
+\usepackage{acronym}
+\usepackage{amsthm}
+\VerbatimFootnotes % Required, otherwise verbatim does not work in footnotes!
+
+
+
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+\definecolor{lightlightgray}{gray}{0.93}
+
+
+
+\lstset{
+%language=bash,                          % Code langugage
+basicstyle=\ttfamily,                   % Code font, Examples: \footnotesize, \ttfamily
+keywordstyle=\color{OliveGreen},        % Keywords font ('*' = uppercase)
+commentstyle=\color{gray},              % Comments font
+numbers=left,                           % Line nums position
+numberstyle=\tiny,                      % Line-numbers fonts
+stepnumber=1,                           % Step between two line-numbers
+numbersep=5pt,                          % How far are line-numbers from code
+backgroundcolor=\color{lightlightgray}, % Choose background color
+frame=none,                             % A frame around the code
+tabsize=2,                              % Default tab size
+captionpos=t,                           % Caption-position = bottom
+breaklines=true,                        % Automatic line breaking?
+breakatwhitespace=false,                % Automatic breaks only at whitespace?
+showspaces=false,                       % Dont make spaces visible
+showtabs=false,                         % Dont make tabls visible
+columns=flexible,                       % Column format
+morekeywords={__global__, __device__},  % CUDA specific keywords
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+{\Large \textsc{GIS Programming}}
+\end{center}
+\begin{center}
+Fall 2021
+\end{center}
+%\date{September 26, 2014}
+
+\begin{center}
+\rule{6in}{0.4pt}
+\begin{minipage}[t]{.75\textwidth}
+\begin{tabular}{llcccll}
+\textbf{Course \#:} & GEOG 479 & & &  & \textbf{Credits:} & 3 \\
+\textbf{Professor:} & Timothy Bartholomaus & & &  & \textbf{Time:} & Th 2:00 -- 4:30 \\
+\textbf{Email:} &  Please use Slack instead & & & & \textbf{Classroom:} & McClure 206
+\end{tabular}
+\end{minipage}
+\rule{6in}{0.4pt}
+\end{center}
+\vspace{.5cm}
+\setlength{\unitlength}{1in}
+\renewcommand{\arraystretch}{2}
+
+\vskip.15in
+\noindent\textbf{Objectives:}  This course is primarily designed for upper level undergraduates and graduate students interested in programmatic, spatial, data analysis.  The course will serve as an introduction to the extremely popular python programming language and the set of packages appropriate for working with spatial data in python.  We will also work with ArcGIS Pro from time to time, although the course will not strictly be focused around ESRI software.
+
+
+\vskip.15in
+\noindent\textbf{Course Pages:} %\begin{enumerate}
+%\item \url{http://yourWebPage1.com/teaching}
+%\item \url{http://yourWebPage2.com/teaching}
+%\end{enumerate}
+We will be using UIdaho's BBLearn website to share course materials and assignments, and keep track of changes to the syllabus and schedule.  Please expect to keep track of this page.
+
+\vskip.15in
+\noindent\textbf{Communication:} %\begin{enumerate}
+%\item \url{http://yourWebPage1.com/teaching}
+%\item \url{http://yourWebPage2.com/teaching}
+%\end{enumerate}
+We'll be using Slack to communicate in support of this class.  Please sign up for slack and join the workspace at \href{https://join.slack.com/t/slack-h6m9869/shared_invite/zt-v2r6wz6p-07v6D3LenASwSkeYMdSDbQ}{this link}.  Within this class workspace, you'll find channels for \# it\_help and other channels for each week's content and assignment.  
+
+Slack is a place to give and receive help, and to ask questions.  Collaborating through this medium, as with other approaches isn't cheating, but is actually a sign of success.  I hope that you will use it frequently.
+
+I generally don't enjoy getting email.  But if you must have it, my email address is tbartholomaus@uidaho.edu.
+
+
+\vskip.15in
+\noindent\textbf{Office Hours:} By appointment, Mondays from 2 to 4 on Zoom (\url{https://uidaho.zoom.us/j/88966120490?pwd=dUs0YWtiakxOL1hpaWhDTVd1djZSZz09}, aka, Meeting ID: 889 6612 0490, Passcode 548040), and on Tuesdays at my office, McClure 307b.  If you do not have a vaccine protecting you against infection by COVID-19, please take advantage of my zoom office hours, rather than attending in person.
+
+\vskip.15in
+\noindent\textbf{Getting started and learning python:} %\footnotemark
+There is an astounding array of online resources for learning python, using it for geospatial data analysis, and connecting it with the ESRI ecosystem.  As such, we have no required textbook for this course.  I expect that you'll be doing a lot of searching the web, and learning informally as we go.  Stack Exchange and Stack Overflow are excellent, high quality, community resources.  People ask questions there, and provide answers.  You can generally trust the answer with the greatest, or maybe second greatest, number of ``up-votes'' to a given question.
+
+That said, I highly recommend the following website resources, each below as a link:
+\begin{itemize}
+\item \href{https://geo-python-site.readthedocs.io/en/latest/}{Geo-Python, from the University of Helsinki}
+\item \href{https://www.earthdatascience.org/courses/earth-analytics-bootcamp/}{Earth Analytics Bootcamp Course, and similar courses linked on this page, from the University of Colorado}
+\item \href{https://scipy-lectures.org/}{Scipy Lecture Notes, for learning the foundations of python for science purposes}
+\
+\end{itemize} 
+
+I am not, specifically, an expert in the use of ESRI software, although I will share with you what I know about interfacing with ArcGIS Pro in a programmatic way.  For my own GIS purposes during research, I typically rely on QGIS, an excellent, highly capable, completely free alternative to ESRI's expensive software.  Thus, if you have specific, advanced questions about ArcGIS Pro, I may not be able to help you, although I will do my best.
+
+% \footnotetext{Downloadable ebook versions are available on AeLP.}
+
+\vskip.15in
+\noindent\textbf{Learning Outcomes:} By the end of this course, students will be able to read, plot, and analyze spatial data using python.  Students will learn to solve problems using multiple tools, including with open source tools outside of the ESRI environment.  Students will be able to programmatically make and update publication-quality maps and figures.  Students will have facility in working with Open Street Map and Google Earth Engine to programmatically draw on vast troves of data to solve prescribed and independently conceived data analysis problems.
+
+\vskip.15in
+\noindent\textbf{Course Structure and Assignments:} Assignments will consist of programming activities that you will carry out via Jupyter Notebooks and ArcGIS Pro projects.  Each week during lecture, I will introduce content and specific learning goals during lecture, we will proceed with a period of in-class, hands-on exercises, and then deliver an assignment for the following week.
+
+At the start of each lecture class, each student will spend 5-10 minutes presenting their progress on the assignment, pointing out places that were specifically challenging, and any particular functions or programming approaches that you found especially useful.  In this way, I expect that you will learn not only from me and from the independent work you do to solve assignments, but also from the other students in our class.
+
+The final two class meetings are reserved for presentation of class projects.  Class projects will consist of a more significant effort to answer a problem of your choosing, using the skills developed earlier in the semester.  For your final project, I expect that you will use the markdown capabilities of Jupyter Notebooks more extensively to produce a``final report'' laying out the goals of your project, the rationale behind your project, the methods that you pursue and any intermediate results, and the final output of your project.  Jupyter Notebooks, with markdown are an excellent tool for exactly this kind of transparent, shareable, and reproducible science.  On the last day of class, December 9th, you will share these notebooks in greater detail than the typical, weekly presentations.
+
+
+\vskip.15in
+\noindent\textbf{Prerequisites:}
+Formally, this class requires having passed GEOG 475, Intermediate GIS.  This formal requirement can be excused with permission of the instructor.  Practically, this class assumes comfort with raster and vector datasets, working with and maintaining an organized computer file structure, and an interest in quantitative analysis.  Comfort with algebra and trigonometry will be assumed, but please contact the instructor if any course content appears unfamiliar.
+
+
+\vspace*{.15in}
+
+\noindent \textbf{Tentative Course Outline:}
+\begin{center} 
+\begin{minipage}{5in}
+\begin{flushleft}
+%Chapter 1 \dotfill ~$\approx$ 3 days \\
+%{\color{darkgreen}{\Rectangle} aasdf } ~A little of probability theory and graph theory	
+
+Aug 26 \dotfill ~Course intro, python intro, notebooks \\
+Sep 2 \dotfill ~Control flow: loops and logicals \\
+Sep 9 \dotfill ~Making publication quality figures \\
+Sep 16 \dotfill ~Modifying and analyzing shapefiles \\
+Sep 23 \dotfill ~Error handling and outputting text/log files\\
+Sep 30 \dotfill ~Analyzing topographic rasters \\
+Oct 7 \dotfill ~Making publication quality figures \\
+Oct 14 \dotfill ~Focus on ArcPy and its tools \\
+Oct 21 \dotfill ~ Integrating custom scripts into the ArcGIS Pro workspace\\
+Oct 28 \dotfill ~Open Street Map and vector analysis \\
+Nov 4 \dotfill ~Open Street Map and vector analysis \\
+Nov 11 \dotfill ~Google Earth Engine and assessing time series of change \\
+Nov 18 \dotfill ~Google Earth Engine and assessing time series of change \\
+Nov 25 \dotfill ~Thanksgiving! \\
+Dec 2 \dotfill ~Check in on final projects \\
+Dec 9 \dotfill ~Share final projects \\
+
+
+\end{flushleft}
+\end{minipage}
+\end{center}
+
+\vspace*{.15in}
+\noindent\textbf{Grading Policy:} Weekly assignments (70\%),  Class engagement (during lecture and/or via slack) (10\%), Project (20\%). %Four Projects (40\% = 4 * 10\%)
+
+%\vskip.15in
+%\noindent\textbf{Important Dates:}
+%\begin{center} \begin{minipage}{3.8in}
+%\begin{flushleft}
+%Midterm \#1      \dotfill ~\={A}b\={a}n 16, 1393  \\
+%Midterm \#2      \dotfill ~\={A}zar 21, 1393  \\
+%Project Deadline \dotfill ~Month Day \\
+%Final Exam       \dotfill ~Dey 18, 1393  \\
+%\end{flushleft}
+%\end{minipage}
+%\end{center}
+
+%\vskip.15in
+%\noindent\textbf{Course Policy:}  
+%\begin{itemize}
+%\item Please sign up for AeLP. I will confirm your enrollment for the course, then you will be able to see the course page.
+%\end{itemize}
+
+\vskip.15in
+\noindent\textbf{Class Attendance:}  
+\begin{itemize}
+\item Regular attendance is essential and expected.  In class, you'll be practicing skills and also presenting the results of your last week's work.
+\item However, I expect that sometimes you won't be feeling 100\%, whether via a cold or via covid.  Please let me know in advance of these class meetings (Thursday morning) so I can try and make accommodations.
+\end{itemize}
+
+\vskip.15in
+\noindent\textbf{Academic Honesty and Collaboration:}   
+You are welcome to discuss the problem sets with your classmates, however the work that you present each week must be your own.  This class, and programming in general, is somewhat different than others, in that "borrowing" liberally from online sources is expected.  If you're not googling to complete your assignments, then you're probably not doing them right.
+
+That said, while discussing the assignments with your colleagues and googling 
+
+\vskip.15in
+\noindent\textbf{Support for Disabilities:}   I am committed to providing equal access to students with disabilities. If you suspect that you will need some form of accommodation to complete this class, please discuss it with me.  UI Center for Disability Access and Resources can assist.  You can learn more at \url{https://www.uidaho.edu/current-students/cdar}.
+
+
+\vskip.15in
+\noindent\textbf{Healthy Vandals Policies:}  It is a longstanding tradition that Vandals take care of Vandals, and we all do our best to look 
+out for the Vandal Family. Simple precautions go a long way in reducing the impact of 
+coronavirus on our campuses and in our communities. With everyone engaging in these small 
+actions, we can continue to participate in our vibrant campus culture where we are able to learn, live, and grow. Please bookmark the \href{https://www.uidaho.edu/vandal-health-clinic/coronavirus}{University of Idaho Covid-19 webpage} and visit it often for the most up-to-date information about the U of I's response to Covid-19.  Specific policies include:
+\begin{itemize}
+\item \textbf{Vaccines.} Students across the university have been and are getting vaccinated.  All Vandals are highly encouraged to be \href{https://www.uidaho.edu/vandal-health-clinic/coronavirus/vaccine}{vaccinated}. When you consider all of the people who are now getting sick, becoming hospitalized, and dying of COVID, 99 out of 100 haven't been vaccinated.
+
+If you are not vaccinated, I ask that you maintain additional, 6 ft social distance from me.  I have a baby who is not yet able to be vaccinated, and I would feel terrible if I got sick despite my vaccine, and then gave the virus to my unvaccinated son.
+\item \textbf{Face Masks.} Masks are required in all university buildings, regardless of vaccination status. This requirement will be reviewed periodically, and is subject to change. 
+
+Masks must be worn over both the nose and mouth.  If you are unable to, please contact \href{https://www.uidaho.edu/current-students/cdar}{CDAR, the Center for Disability Access and Resources} and let me know of your accommodation.
+
+
+\item \textbf{Tracking your health.} Evaluate your own health 
+status before attending in-person classes and refrain from attending class in-person if you are ill, if you are experiencing a cough, runny nose or congestion, a sore throat, headaches, fever or chills, or any other potential COVID-19 symptoms, or if you have tested positive for COVID-19 or have been potentially exposed to someone with 
+COVID-19.  
+ 
+Stay home if you experience any symptoms related to COVID 19 and that are not 
+attributed to a non-infectious health condition regardless of how mild. 
+
+Contact your medical provider or local Idaho Public Health District for 
+assessment of symptoms and possible COVID-19 testing.  Positive COVID-19 tests should be submitted via a VandalCare Report in order to make arrangements  
+that involve classroom absences due to illness, and/or quarantine or isolation 
+requirements directed by a medical provider. 
+
+ \end{itemize}
+
+ 
+%\begin{itemize}
+%\item \item \end{itemize}
+
+%\item \textbf{}
+%\end{enumerate}
+
+
+
+%%%%%% THE END 
+\end{document} 
