@@ -15,22 +15,22 @@ For the installation of python, we will use the free python module/package manag
   
 2. _Set up your conda environments_<br/>
     - Scientific computing with python is done using "packages" or "modules."  Some combinations of modules might be incompatible.  Anaconda helps maintain mutually consistent modules, but environments take this a step further.  By creating separate "environments," you create different virtual _workshops_ or _sandboxes_ in which all the tools are designed to work well together, and not conflict.<br/>
-    - Set up the GISenv21b environment.  In the directory to which you've downloaded `GISenv21b`, type `conda env create -f GISenv21b.yml`.  Be patient.  There are a lot of components for this environment and it can take 10-20 minutes for the environment to be "solved," which means that compatible versions of all the modules have been identified.
+    - Set up the GISenv21b environment.  In the directory to which you've downloaded `GISenv21b`, type `conda env create -f GISenv21b.yml`.  Be patient.  There are a lot of components for this environment and it can take 45 minutes for the environment to be "solved," which means that compatible versions of all the modules have been identified.
     - Some of the environments that the UI Glacier Dynamics Lab (and Tim personally) uses for his projects are hosted on github [here](https://github.com/tbartholomaus/conda_envs).<br/>
     - You can also [learn more about conda environments below](https://github.com/tbartholomaus/uiglaciology/blob/master/content/3-code.md#environments-internally-consistent-sets-of-python-modules).<br/>
 
 
 3. _Start coding_<br/>
+    - Activate your newly created conda environment: `conda activate GISenv21b1
     - Now you're ready to start coding in python!  
     - Open either Jupyter Lab to start an interface for coding pythong. 
 
 
 ## Reading Assignment
 ### 1. A Whirlwind Tour of Python (~2-4 hours)
-* Work your way through Jake VanderPlas’ excellent “Whirlwind Tour of Python”: https://jakevdp.github.io/WhirlwindTourOfPython/
-* In a terminal on the Jupyterhub:
-    * Create a new directory with `mkdir` to store external resources and `cd` into that directory
-    * `git clone https://github.com/jakevdp/WhirlwindTourOfPython`
+* Work your way through Jake VanderPlas’ excellent “Whirlwind Tour of Python”: https://jakevdp.github.io/WhirlwindTourOfPython/. To do so, first download the notebooks from github.
+    * Go to https://github.com/jakevdp/WhirlwindTourOfPython and click on the green "Code" button
+    * Download the zip file somewhere within your directory for this class and unzip it.
 * Work through the notebooks, taking some time to experiment along the way (don’t just shift-Enter without reading text or absorbing concepts)
     * Can skip sections on Python installation and conda - we’ve taken care of this with the class Jupyterhub setup, and we will revisit conda later in the quarter
     * Note that we are exclusively using Python3 in this class (but good to know about potential issues with Python2 compatibility)
@@ -51,4 +51,4 @@ If this is too basic (or you’re curious), try one or more of the following:
 * Review the Python style guide: https://www.python.org/dev/peps/pep-0008/
 
 ## Coding Assignment
-
+This coding assignment will be released later today (Monday) or tomorrow.
