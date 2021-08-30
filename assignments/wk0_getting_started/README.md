@@ -21,7 +21,7 @@ For the installation of python, we will use the free python module/package manag
 
 
 3. _Start coding_<br/>
-    - Activate your newly created conda environment: `conda activate GISenv21b1
+    - Activate your newly created conda environment: `conda activate GISenv21b`
     - Now you're ready to start coding in python!  
     - Open either Jupyter Lab to start an interface for coding pythong. 
 
