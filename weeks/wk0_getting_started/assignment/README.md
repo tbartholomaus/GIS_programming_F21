@@ -15,8 +15,9 @@ For the installation of python, we will use the free python module/package manag
   
 2. _Set up your conda environments_<br/>
     - Scientific computing with python is done using "packages" or "modules."  Some combinations of modules might be incompatible.  Anaconda helps maintain mutually consistent modules, but environments take this a step further.  By creating separate "environments," you create different virtual _workshops_ or _sandboxes_ in which all the tools are designed to work well together, and not conflict.<br/>
-    - Set up the GISenv21b environment.  In the directory to which you've downloaded `GISenv21b`, type `conda env create -f GISenv21b.yml`.  Be patient.  There are a lot of components for this environment and it can take 45 minutes for the environment to be "solved," which means that compatible versions of all the modules have been identified.
-    - Some of the environments that the UI Glacier Dynamics Lab (and Tim personally) uses for his projects are hosted on github [here](https://github.com/tbartholomaus/conda_envs).<br/>
+    - Download the file GISenv21b.yml to your computer.  This file specifies what modules will be installed in this environment.
+    - Set up the GISenv21b environment.  In the directory to which you've downloaded `GISenv21b`, type `conda env create -f GISenv21b.yml`.  Be patient.  There are a lot of components for this environment and it can take 45 minutes for the environment to be "solved," which means that compatible versions of all the modules have been identified.  Once the environment is set up, you will have access to a suite of python modules useful for working with spatial data, but _only when the environment is active (see below)._
+    - Some of the other environments that the UI Glacier Dynamics Lab (and Tim personally) uses for his projects are hosted on github [here](https://github.com/tbartholomaus/conda_envs).<br/>
     - You can also [learn more about conda environments below](https://github.com/tbartholomaus/uiglaciology/blob/master/content/3-code.md#environments-internally-consistent-sets-of-python-modules).<br/>
 
 
