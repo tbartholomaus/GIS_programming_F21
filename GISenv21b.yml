@@ -1,0 +1,50 @@
+name: GISenv21b
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Core scientific python libraries
+  - python=3*
+  - numpy
+  - matplotlib
+  - scipy
+  - scikit-learn
+  - pandas
+  - statsmodels
+  - sympy
+  - pip
+ 
+  - spyder
+  - jupyter
+  - ipython
+  - ipykernel
+  - ipywidgets
+  - nb_conda_kernels
+  - jupyterlab
+  - ipympl
+  - nodejs
+
+  - seaborn
+  - h5py
+  - netcdf4
+  - xarray
+  - plotly
+
+  - opencv
+
+
+  # spatial libraries
+  - rasterstats
+  - geopy
+  - cartopy
+  - geopandas
+  - basemap
+  - pyproj
+  - shapely
+  - gdal
+  - fiona
+  - rasterio
+  - gstools
+  - richdem
+  - osmnx
