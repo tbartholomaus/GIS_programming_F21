@@ -52,4 +52,4 @@ If this is too basic (or you’re curious), try one or more of the following:
 * Review the Python style guide: https://www.python.org/dev/peps/pep-0008/
 
 ## Coding Assignment
-This coding assignment will be released later today (Monday) or tomorrow.
+This coding assignment is at https://github.com/tbartholomaus/GIS_programming_F21/blob/main/weeks/wk0_getting_started/assignment/Assignment0.ipynb. Please work through this notebook and complete the few cells which require your responses.
