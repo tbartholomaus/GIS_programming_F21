@@ -1,4 +1,4 @@
-﻿Distance (m),Longitude,Latitude,Elevation (m)
+﻿Distance (m),Longitude (deg),Latitude (deg),Elevation (m)
 0,-124.7546928,45.91942425,0
 151.3149108,-124.7526093,45.91950762,0
 302.6298216,-124.7505259,45.91959099,0
