@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper]{article}
+	\documentclass[11pt, a4paper]{article}
 %\usepackage{geometry}
 \usepackage[inner=1.5cm,outer=1.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 \pagestyle{empty}
@@ -85,7 +85,7 @@ Fall 2021
 \end{center}
 \vspace{.5cm}
 \setlength{\unitlength}{1in}
-\renewcommand{\arraystretch}{2}
+\renewcommand{\arraystretch}{1}  % Line spacing internal to tables
 
 \vskip.15in
 \noindent\textbf{Objectives:}  This course is primarily designed for upper level undergraduates and graduate students interested in programmatic, spatial, data analysis.  The course will serve as an introduction to the extremely popular python programming language and the set of packages appropriate for working with spatial data in python.  We will also work with ArcGIS Pro from time to time, although the course will not strictly be focused around ESRI software.
@@ -149,6 +149,7 @@ Formally, this class requires having passed GEOG 475, Intermediate GIS.  This fo
 \vspace*{.15in}
 
 \noindent \textbf{Tentative Course Outline:}
+Topics listed below represent those that will be assigned each week.
 \begin{center} 
 \begin{minipage}{5in}
 \begin{flushleft}
@@ -158,14 +159,14 @@ Formally, this class requires having passed GEOG 475, Intermediate GIS.  This fo
 Aug 26 \dotfill ~Course intro, python intro, notebooks \\
 Sep 2 \dotfill ~Control flow: loops and logicals \\
 Sep 9 \dotfill ~Making publication quality figures \\
-Sep 16 \dotfill ~Modifying and analyzing shapefiles \\
-Sep 23 \dotfill ~Error handling and outputting text/log files\\
-Sep 30 \dotfill ~Analyzing topographic rasters \\
-Oct 7 \dotfill ~Making publication quality figures \\
+Sep 16 \dotfill ~Modifying and analyzing vector data \\
+Sep 23 \dotfill ~Vector data analysis \\
+Sep 30 \dotfill ~Functions, error handling and outputting text/log files\\
+Oct 7 \dotfill ~Analyzing topographic rasters \\
 Oct 14 \dotfill ~Focus on ArcPy and its tools \\
 Oct 21 \dotfill ~ Integrating custom scripts into the ArcGIS Pro workspace\\
-Oct 28 \dotfill ~Open Street Map and vector analysis \\
-Nov 4 \dotfill ~Open Street Map and vector analysis \\
+Oct 28 \dotfill ~Open Street Map and more advanced vector analysis \\
+Nov 4 \dotfill ~Open Street Map and more advanced vector analysis \\
 Nov 11 \dotfill ~Google Earth Engine and assessing time series of change \\
 Nov 18 \dotfill ~Google Earth Engine and assessing time series of change \\
 Nov 25 \dotfill ~Thanksgiving! \\
@@ -179,6 +180,31 @@ Dec 9 \dotfill ~Share final projects \\
 
 \vspace*{.15in}
 \noindent\textbf{Grading Policy:} Weekly assignments (70\%),  Class engagement (during lecture and/or via slack) (10\%), Project (20\%). %Four Projects (40\% = 4 * 10\%)
+
+Each assignment will be evaluated on a 6 point scale as follows:  
+\begin{center}
+%\rule{3in}{0.4pt}
+%\begin{minipage}[t]{.75\textwidth}
+
+\begin{tabular}{l l}
+Missing/absent & 0 \\
+Student present, but missing all/most of work & 2 \\
+Assignment missing many elements & 3 \\
+Missing some elements -- could be better & 4 \\
+Assignment is complete & 5 \\
+Above and beyond -- impressive & 6 \\
+\end{tabular}
+
+%\end{minipage}
+%\rule{6in}{0.4pt}
+\end{center}
+%\vspace{.5cm}
+%\setlength{\unitlength}{1in}
+%\renewcommand{\arraystretch}{2}
+
+In assigning letter grades, I will consider straight ``5''s to be on the cusp between a B and an A.  To earn an A, I expect to see some assignments that reflect a little extra polish, or that reflect extra effort and go beyond ``checking the boxes.''  If the assignments are by and large complete, but several of the assignments are missing elements or are a little sloppy, then those assignments deserve a B over all.  Work that is consistently incomplete or sloppy will receive a C.  
+
+I expect that the Project at the term end will be of professional quality: that the code will run well, is commented, uses markdown cells to clearly describe the purpose of the analysis and the context, and the figures are clean and look sharp.  This project should be something you would be proud to show an employer.
 
 %\vskip.15in
 %\noindent\textbf{Important Dates:}
@@ -207,7 +233,7 @@ Dec 9 \dotfill ~Share final projects \\
 
 \vskip.15in
 \noindent\textbf{Academic Honesty and Collaboration:}   
-You are welcome to discuss the problem sets with your classmates, however the work that you present each week must be your own.  This class, and programming in general, is somewhat different than others, in that "borrowing" liberally from online sources is expected.  If you're not googling to complete your assignments, then you're probably not doing them right.
+You are welcome to discuss the problem sets with your classmates, however the work that you present each week must be your own.  This class, and programming in general, is somewhat different than others, in that ``borrowing'' liberally from online sources is expected.  If you're not googling to complete your assignments, then you're probably not doing them right.
 
 That said, while I explicitly expect and encourage discussing the assignments with your colleagues and googling, for solutions, I expect that you will present your own work during each class.  Sharing whole blocks of code verbatim as answers is unacceptable.  Pointing your classmates towards use of a specific python function, or helpful website, is great.
 
